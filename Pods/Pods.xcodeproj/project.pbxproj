@@ -1,0 +1,821 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		20544768DE3B2F6410F870D59F90591F /* Pods-SenseiOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A7819116DC37F2546FB04AD996AF58F2 /* Pods-SenseiOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		47D49C102DCBE2BF7E37814A4848F67E /* MotionKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C75AADA43C0D77BD5B1D988DE37C7C0 /* MotionKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4B7052133102590EB8BA838F79F72CA1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		552DA70D26ECCF30BF892DFECA769A36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		63BDB4263278E74009AD239C64BAC126 /* Pods-SenseiOSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B00FF154F30CE6E9A2AF0AEBEFB72D4 /* Pods-SenseiOSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B7E2D9AF9E56121F02830E8797642B57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		C3149D410C23EC99E7EFFF6359F556DD /* Pods-SenseiOSUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = DFDFA711C67D851BCC080B8158CEAEBC /* Pods-SenseiOSUITests-dummy.m */; };
+		D0F7C65B6EE24FC9C429292B2FDCB948 /* Pods-SenseiOSUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 33B98EF69173361C6236CE72E14BD6D1 /* Pods-SenseiOSUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DBC18A58150A6FD6036E7B5AA320F73E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		E78E90BDE846A0B62D2902C129832085 /* MotionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B32605CAE187B1EDEE221F63F5D0162 /* MotionKit.swift */; };
+		E7A64DA8E549263A1D01809B41CEDE62 /* Pods-SenseiOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DA3B83D3AAEC986E064EF794A73910 /* Pods-SenseiOS-dummy.m */; };
+		EDB017E543CF3DE342B3AE69DAB3BE68 /* Pods-SenseiOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C963617E82B62F02BBB16712D8FD3A8 /* Pods-SenseiOSTests-dummy.m */; };
+		EE25176282BABB90666F932B80480811 /* MotionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E9ADDCADEF491F5C2BC43ACEA93FA82 /* MotionKit-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F49C3105E6AEDD3D1582C87D05FA0CA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F1B973D09B338F2C57CC528998608F5;
+			remoteInfo = MotionKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01BE4803947B49A7A47163838E782471 /* Pods-SenseiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SenseiOS.release.xcconfig"; sourceTree = "<group>"; };
+		0FD14AF2364C572C1E800094218ED10E /* Pods-SenseiOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SenseiOS-frameworks.sh"; sourceTree = "<group>"; };
+		12DA3B83D3AAEC986E064EF794A73910 /* Pods-SenseiOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SenseiOS-dummy.m"; sourceTree = "<group>"; };
+		14DBFF781DF744C2A8069A7A5E2AA1B1 /* Pods-SenseiOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SenseiOS.modulemap"; sourceTree = "<group>"; };
+		1F3D73553545A3CF1ECA6E050A76928E /* Pods-SenseiOSTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SenseiOSTests.modulemap"; sourceTree = "<group>"; };
+		20C432A663F0448782E6FCD5424D635D /* MotionKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MotionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BB49E6EA8F57445F65FF118139D46DF /* Pods-SenseiOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SenseiOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		2D57725A07CAFE79EF6A042F956D8CA9 /* MotionKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MotionKit.modulemap; sourceTree = "<group>"; };
+		2E39A6A4175125C201A545DC8808EDE3 /* Pods_SenseiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SenseiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8240FEFC9E9B4ABDABFFA98DB495E3 /* Pods_SenseiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SenseiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B98EF69173361C6236CE72E14BD6D1 /* Pods-SenseiOSUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SenseiOSUITests-umbrella.h"; sourceTree = "<group>"; };
+		33B99114A42DEDA1A5D424DE5CBAA779 /* Pods-SenseiOSUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SenseiOSUITests.modulemap"; sourceTree = "<group>"; };
+		3EB241EDA4D11C072ADC389691F8A242 /* Pods-SenseiOSUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SenseiOSUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		407F738C767D4896B785D3812452E826 /* Pods-SenseiOSTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SenseiOSTests-frameworks.sh"; sourceTree = "<group>"; };
+		4CDB73AB1F70355C629C83D0A25111F4 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F0E22AC6A7DE798CD9C446757E49B82 /* MotionKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MotionKit-prefix.pch"; sourceTree = "<group>"; };
+		5B7255B81EF2182EC03DAE2469BE5D3D /* Pods-SenseiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SenseiOS.debug.xcconfig"; sourceTree = "<group>"; };
+		5CE2EDDBCB5552CD2E776983634865B6 /* Pods-SenseiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SenseiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5EF98F4D0A63BE73B5AC9BA0444314E8 /* Pods-SenseiOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SenseiOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		6AE7554A58D1F6F69FC3098B8A2D7FD3 /* Pods-SenseiOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SenseiOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		6C963617E82B62F02BBB16712D8FD3A8 /* Pods-SenseiOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SenseiOSTests-dummy.m"; sourceTree = "<group>"; };
+		6E9ADDCADEF491F5C2BC43ACEA93FA82 /* MotionKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MotionKit-dummy.m"; sourceTree = "<group>"; };
+		7C75AADA43C0D77BD5B1D988DE37C7C0 /* MotionKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MotionKit-umbrella.h"; sourceTree = "<group>"; };
+		7C826B7DBACD57B9766FE378D8C35DF0 /* Pods-SenseiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SenseiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7FB7371E23863258FB3A497DA5BBC2A7 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D804088A3059CB6BB59AF34F7ADA5B0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94E4FB70AEDBEFD82A449B8ED95FD855 /* Pods-SenseiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SenseiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9A6A18F633E27B6A0316A8EDC947A903 /* Pods-SenseiOSUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SenseiOSUITests-frameworks.sh"; sourceTree = "<group>"; };
+		9B00FF154F30CE6E9A2AF0AEBEFB72D4 /* Pods-SenseiOSTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SenseiOSTests-umbrella.h"; sourceTree = "<group>"; };
+		9B32605CAE187B1EDEE221F63F5D0162 /* MotionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MotionKit.swift; path = MotionKit/MotionKit.swift; sourceTree = "<group>"; };
+		A7819116DC37F2546FB04AD996AF58F2 /* Pods-SenseiOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SenseiOS-umbrella.h"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D3A88CBC80F7CE1CD7952A93F2092E84 /* Pods-SenseiOSUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SenseiOSUITests-resources.sh"; sourceTree = "<group>"; };
+		DA39B7C8DA09F67E4BD324340879B1CA /* Pods_SenseiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SenseiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFDFA711C67D851BCC080B8158CEAEBC /* Pods-SenseiOSUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SenseiOSUITests-dummy.m"; sourceTree = "<group>"; };
+		E4630637F9C9EA3ABCDB95B805B8EE37 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA7791238CD0452E37973D28334D9559 /* MotionKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MotionKit.xcconfig; sourceTree = "<group>"; };
+		EEF52C90BD1B932D3DB5B3E7DF4C129F /* Pods-SenseiOSTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SenseiOSTests-resources.sh"; sourceTree = "<group>"; };
+		F77F0FD7FBD74FD0E537383EF27A2789 /* Pods-SenseiOS-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SenseiOS-resources.sh"; sourceTree = "<group>"; };
+		FDBDC75A2475F044161F173B7175E939 /* Pods-SenseiOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SenseiOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		FF72931D0DEDFE1871F9EE436F9D27F6 /* Pods-SenseiOSUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SenseiOSUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		FFBE8BB1577BE0DE56C11A8892BFE304 /* Pods-SenseiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SenseiOSTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1B7541F7315B2CFC92F91BAD3DDBE572 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7E2D9AF9E56121F02830E8797642B57 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		686A457CC90531B819572C4D5E6382C7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B7052133102590EB8BA838F79F72CA1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C4818DFB4892D1265059F0AB3981B97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				552DA70D26ECCF30BF892DFECA769A36 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB6429FB2D163EFFE4B0AFF484FC46DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DBC18A58150A6FD6036E7B5AA320F73E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2D0B61ED318B9A14C3478E5223019D0A /* Pods-SenseiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				8D804088A3059CB6BB59AF34F7ADA5B0 /* Info.plist */,
+				1F3D73553545A3CF1ECA6E050A76928E /* Pods-SenseiOSTests.modulemap */,
+				2BB49E6EA8F57445F65FF118139D46DF /* Pods-SenseiOSTests-acknowledgements.markdown */,
+				6AE7554A58D1F6F69FC3098B8A2D7FD3 /* Pods-SenseiOSTests-acknowledgements.plist */,
+				6C963617E82B62F02BBB16712D8FD3A8 /* Pods-SenseiOSTests-dummy.m */,
+				407F738C767D4896B785D3812452E826 /* Pods-SenseiOSTests-frameworks.sh */,
+				EEF52C90BD1B932D3DB5B3E7DF4C129F /* Pods-SenseiOSTests-resources.sh */,
+				9B00FF154F30CE6E9A2AF0AEBEFB72D4 /* Pods-SenseiOSTests-umbrella.h */,
+				94E4FB70AEDBEFD82A449B8ED95FD855 /* Pods-SenseiOSTests.debug.xcconfig */,
+				FFBE8BB1577BE0DE56C11A8892BFE304 /* Pods-SenseiOSTests.release.xcconfig */,
+			);
+			name = "Pods-SenseiOSTests";
+			path = "Target Support Files/Pods-SenseiOSTests";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		4F860F14866EC8182A5DC429423123D3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FB7371E23863258FB3A497DA5BBC2A7 /* Info.plist */,
+				2D57725A07CAFE79EF6A042F956D8CA9 /* MotionKit.modulemap */,
+				EA7791238CD0452E37973D28334D9559 /* MotionKit.xcconfig */,
+				6E9ADDCADEF491F5C2BC43ACEA93FA82 /* MotionKit-dummy.m */,
+				4F0E22AC6A7DE798CD9C446757E49B82 /* MotionKit-prefix.pch */,
+				7C75AADA43C0D77BD5B1D988DE37C7C0 /* MotionKit-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MotionKit";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				DC9E931556BEB555A0CC01D5E133D882 /* Pods */,
+				896D13EDC2C2918E507E57E610E9C8C2 /* Products */,
+				F544AAB75A0C63022C6549F11839DF1A /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		896D13EDC2C2918E507E57E610E9C8C2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				20C432A663F0448782E6FCD5424D635D /* MotionKit.framework */,
+				2E39A6A4175125C201A545DC8808EDE3 /* Pods_SenseiOS.framework */,
+				DA39B7C8DA09F67E4BD324340879B1CA /* Pods_SenseiOSTests.framework */,
+				2E8240FEFC9E9B4ABDABFFA98DB495E3 /* Pods_SenseiOSUITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C5863F330F080920F7C60444E1B43C7 /* Pods-SenseiOS */ = {
+			isa = PBXGroup;
+			children = (
+				E4630637F9C9EA3ABCDB95B805B8EE37 /* Info.plist */,
+				14DBFF781DF744C2A8069A7A5E2AA1B1 /* Pods-SenseiOS.modulemap */,
+				FDBDC75A2475F044161F173B7175E939 /* Pods-SenseiOS-acknowledgements.markdown */,
+				5EF98F4D0A63BE73B5AC9BA0444314E8 /* Pods-SenseiOS-acknowledgements.plist */,
+				12DA3B83D3AAEC986E064EF794A73910 /* Pods-SenseiOS-dummy.m */,
+				0FD14AF2364C572C1E800094218ED10E /* Pods-SenseiOS-frameworks.sh */,
+				F77F0FD7FBD74FD0E537383EF27A2789 /* Pods-SenseiOS-resources.sh */,
+				A7819116DC37F2546FB04AD996AF58F2 /* Pods-SenseiOS-umbrella.h */,
+				5B7255B81EF2182EC03DAE2469BE5D3D /* Pods-SenseiOS.debug.xcconfig */,
+				01BE4803947B49A7A47163838E782471 /* Pods-SenseiOS.release.xcconfig */,
+			);
+			name = "Pods-SenseiOS";
+			path = "Target Support Files/Pods-SenseiOS";
+			sourceTree = "<group>";
+		};
+		9301191C4ACA0202497EA669990A7BE9 /* MotionKit */ = {
+			isa = PBXGroup;
+			children = (
+				9B32605CAE187B1EDEE221F63F5D0162 /* MotionKit.swift */,
+				4F860F14866EC8182A5DC429423123D3 /* Support Files */,
+			);
+			path = MotionKit;
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDA097CCC19A9DD1550B5B1B63FE3497 /* Pods-SenseiOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4CDB73AB1F70355C629C83D0A25111F4 /* Info.plist */,
+				33B99114A42DEDA1A5D424DE5CBAA779 /* Pods-SenseiOSUITests.modulemap */,
+				3EB241EDA4D11C072ADC389691F8A242 /* Pods-SenseiOSUITests-acknowledgements.markdown */,
+				FF72931D0DEDFE1871F9EE436F9D27F6 /* Pods-SenseiOSUITests-acknowledgements.plist */,
+				DFDFA711C67D851BCC080B8158CEAEBC /* Pods-SenseiOSUITests-dummy.m */,
+				9A6A18F633E27B6A0316A8EDC947A903 /* Pods-SenseiOSUITests-frameworks.sh */,
+				D3A88CBC80F7CE1CD7952A93F2092E84 /* Pods-SenseiOSUITests-resources.sh */,
+				33B98EF69173361C6236CE72E14BD6D1 /* Pods-SenseiOSUITests-umbrella.h */,
+				5CE2EDDBCB5552CD2E776983634865B6 /* Pods-SenseiOSUITests.debug.xcconfig */,
+				7C826B7DBACD57B9766FE378D8C35DF0 /* Pods-SenseiOSUITests.release.xcconfig */,
+			);
+			name = "Pods-SenseiOSUITests";
+			path = "Target Support Files/Pods-SenseiOSUITests";
+			sourceTree = "<group>";
+		};
+		DC9E931556BEB555A0CC01D5E133D882 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9301191C4ACA0202497EA669990A7BE9 /* MotionKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F544AAB75A0C63022C6549F11839DF1A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8C5863F330F080920F7C60444E1B43C7 /* Pods-SenseiOS */,
+				2D0B61ED318B9A14C3478E5223019D0A /* Pods-SenseiOSTests */,
+				BDA097CCC19A9DD1550B5B1B63FE3497 /* Pods-SenseiOSUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6947948455B7B8A68C3CEEFAFF612DD8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0F7C65B6EE24FC9C429292B2FDCB948 /* Pods-SenseiOSUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AA9DE5A376BB27C71829EB2A05D4E59 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63BDB4263278E74009AD239C64BAC126 /* Pods-SenseiOSTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C161F02E18323575B400079C86735620 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				47D49C102DCBE2BF7E37814A4848F67E /* MotionKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D39133626AC1B3C0062F3CD216AFDDA5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20544768DE3B2F6410F870D59F90591F /* Pods-SenseiOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		32CA6F3ACBDA4EE8F2395E8984E9D3E8 /* Pods-SenseiOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3E31E4F2BB70C491E240FFF374E123A8 /* Build configuration list for PBXNativeTarget "Pods-SenseiOSUITests" */;
+			buildPhases = (
+				CC871617D4991B21541426721D23363F /* Sources */,
+				7C4818DFB4892D1265059F0AB3981B97 /* Frameworks */,
+				6947948455B7B8A68C3CEEFAFF612DD8 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SenseiOSUITests";
+			productName = "Pods-SenseiOSUITests";
+			productReference = 2E8240FEFC9E9B4ABDABFFA98DB495E3 /* Pods_SenseiOSUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4F1B973D09B338F2C57CC528998608F5 /* MotionKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50942848DACDA5D2C826BC93456006B0 /* Build configuration list for PBXNativeTarget "MotionKit" */;
+			buildPhases = (
+				1B357CEF36F09FD1F815384B193092E6 /* Sources */,
+				686A457CC90531B819572C4D5E6382C7 /* Frameworks */,
+				C161F02E18323575B400079C86735620 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MotionKit;
+			productName = MotionKit;
+			productReference = 20C432A663F0448782E6FCD5424D635D /* MotionKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		74A092D4C631B10BA9B10BF073CA96D7 /* Pods-SenseiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 567C1E7863D3D61EBFAFA4C0042EC818 /* Build configuration list for PBXNativeTarget "Pods-SenseiOSTests" */;
+			buildPhases = (
+				FA244F8A9CEBCBA358B565300A53C4D0 /* Sources */,
+				1B7541F7315B2CFC92F91BAD3DDBE572 /* Frameworks */,
+				8AA9DE5A376BB27C71829EB2A05D4E59 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SenseiOSTests";
+			productName = "Pods-SenseiOSTests";
+			productReference = DA39B7C8DA09F67E4BD324340879B1CA /* Pods_SenseiOSTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B08A8BF908D0838CBF9954B2F8B6533B /* Pods-SenseiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7BED50D4D05371F356E8B4C59683A8C5 /* Build configuration list for PBXNativeTarget "Pods-SenseiOS" */;
+			buildPhases = (
+				FFD4882ACD8C7F94296D390D589125F3 /* Sources */,
+				AB6429FB2D163EFFE4B0AFF484FC46DB /* Frameworks */,
+				D39133626AC1B3C0062F3CD216AFDDA5 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B4C461B9BF96D4D4EE85CD2DAB11A19D /* PBXTargetDependency */,
+			);
+			name = "Pods-SenseiOS";
+			productName = "Pods-SenseiOS";
+			productReference = 2E39A6A4175125C201A545DC8808EDE3 /* Pods_SenseiOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 896D13EDC2C2918E507E57E610E9C8C2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F1B973D09B338F2C57CC528998608F5 /* MotionKit */,
+				B08A8BF908D0838CBF9954B2F8B6533B /* Pods-SenseiOS */,
+				74A092D4C631B10BA9B10BF073CA96D7 /* Pods-SenseiOSTests */,
+				32CA6F3ACBDA4EE8F2395E8984E9D3E8 /* Pods-SenseiOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1B357CEF36F09FD1F815384B193092E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE25176282BABB90666F932B80480811 /* MotionKit-dummy.m in Sources */,
+				E78E90BDE846A0B62D2902C129832085 /* MotionKit.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC871617D4991B21541426721D23363F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3149D410C23EC99E7EFFF6359F556DD /* Pods-SenseiOSUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA244F8A9CEBCBA358B565300A53C4D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB017E543CF3DE342B3AE69DAB3BE68 /* Pods-SenseiOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD4882ACD8C7F94296D390D589125F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E7A64DA8E549263A1D01809B41CEDE62 /* Pods-SenseiOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B4C461B9BF96D4D4EE85CD2DAB11A19D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MotionKit;
+			target = 4F1B973D09B338F2C57CC528998608F5 /* MotionKit */;
+			targetProxy = F49C3105E6AEDD3D1582C87D05FA0CA8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0A4C31B1E83E12FA147E096AB7A98CF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFBE8BB1577BE0DE56C11A8892BFE304 /* Pods-SenseiOSTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SenseiOSTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SenseiOSTests/Pods-SenseiOSTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SenseiOSTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		37F68593371CF00B4B68DA66425B65F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C826B7DBACD57B9766FE378D8C35DF0 /* Pods-SenseiOSUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SenseiOSUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SenseiOSUITests/Pods-SenseiOSUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SenseiOSUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3FA451D268613890FA8A5A03801E11D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44EAC024A3442E6B90086EB8F450F27C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA7791238CD0452E37973D28334D9559 /* MotionKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MotionKit/MotionKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MotionKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MotionKit/MotionKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = MotionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		62DB9E616BAC60A6AB9DD2A182B7853B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B7255B81EF2182EC03DAE2469BE5D3D /* Pods-SenseiOS.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SenseiOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SenseiOS/Pods-SenseiOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SenseiOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7273445DE375B49C4E75954DD585319D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA7791238CD0452E37973D28334D9559 /* MotionKit.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/MotionKit/MotionKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MotionKit/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/MotionKit/MotionKit.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = MotionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		AC322C7DD74C78FF3304F7C8651C9BFB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 94E4FB70AEDBEFD82A449B8ED95FD855 /* Pods-SenseiOSTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SenseiOSTests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SenseiOSTests/Pods-SenseiOSTests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SenseiOSTests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B77C777059CF6B0361665386685C72DC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5CE2EDDBCB5552CD2E776983634865B6 /* Pods-SenseiOSUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SenseiOSUITests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SenseiOSUITests/Pods-SenseiOSUITests.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SenseiOSUITests;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E5E173C34327738C706652F81B80814B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01BE4803947B49A7A47163838E782471 /* Pods-SenseiOS.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SenseiOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SenseiOS/Pods-SenseiOS.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_SenseiOS;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */,
+				3FA451D268613890FA8A5A03801E11D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3E31E4F2BB70C491E240FFF374E123A8 /* Build configuration list for PBXNativeTarget "Pods-SenseiOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B77C777059CF6B0361665386685C72DC /* Debug */,
+				37F68593371CF00B4B68DA66425B65F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50942848DACDA5D2C826BC93456006B0 /* Build configuration list for PBXNativeTarget "MotionKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7273445DE375B49C4E75954DD585319D /* Debug */,
+				44EAC024A3442E6B90086EB8F450F27C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		567C1E7863D3D61EBFAFA4C0042EC818 /* Build configuration list for PBXNativeTarget "Pods-SenseiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC322C7DD74C78FF3304F7C8651C9BFB /* Debug */,
+				0A4C31B1E83E12FA147E096AB7A98CF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BED50D4D05371F356E8B4C59683A8C5 /* Build configuration list for PBXNativeTarget "Pods-SenseiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62DB9E616BAC60A6AB9DD2A182B7853B /* Debug */,
+				E5E173C34327738C706652F81B80814B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_SenseiOSTests {
+  umbrella header "Pods-SenseiOSTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,687 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		289B0B93A7748ED18E83C4D4 /* Pods_SenseiOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D7D140F54C6098BF080B3A /* Pods_SenseiOSTests.framework */; };
+		2E5B206D4999A3F2AD900578 /* Pods_SenseiOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9206D30EE7AC4E692C0F06E5 /* Pods_SenseiOSUITests.framework */; };
+		95119E6169BCDFD39908807E /* Pods_SenseiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0176293FC09AE7523F8B2CA3 /* Pods_SenseiOS.framework */; };
+		E28E8FD01D0856B0003D23A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28E8FCF1D0856B0003D23A2 /* AppDelegate.swift */; };
+		E28E8FD21D0856B0003D23A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28E8FD11D0856B0003D23A2 /* ViewController.swift */; };
+		E28E8FD51D0856B0003D23A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28E8FD31D0856B0003D23A2 /* Main.storyboard */; };
+		E28E8FD71D0856B0003D23A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E28E8FD61D0856B0003D23A2 /* Assets.xcassets */; };
+		E28E8FDA1D0856B0003D23A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28E8FD81D0856B0003D23A2 /* LaunchScreen.storyboard */; };
+		E28E8FE51D0856B0003D23A2 /* SenseiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28E8FE41D0856B0003D23A2 /* SenseiOSTests.swift */; };
+		E28E8FF01D0856B0003D23A2 /* SenseiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E28E8FEF1D0856B0003D23A2 /* SenseiOSUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E28E8FE11D0856B0003D23A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E28E8FC41D0856B0003D23A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E28E8FCB1D0856B0003D23A2;
+			remoteInfo = SenseiOS;
+		};
+		E28E8FEC1D0856B0003D23A2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E28E8FC41D0856B0003D23A2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E28E8FCB1D0856B0003D23A2;
+			remoteInfo = SenseiOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0176293FC09AE7523F8B2CA3 /* Pods_SenseiOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SenseiOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D464B39D2FA6C1AAB194DC8 /* Pods-SenseiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenseiOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SenseiOS/Pods-SenseiOS.release.xcconfig"; sourceTree = "<group>"; };
+		4F0FFD6F89F7295DC7FC10B2 /* Pods-SenseiOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenseiOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SenseiOSTests/Pods-SenseiOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		9206D30EE7AC4E692C0F06E5 /* Pods_SenseiOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SenseiOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5740128170E79E78940ED15 /* Pods-SenseiOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenseiOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SenseiOSUITests/Pods-SenseiOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C5E0313186658DD7B2C0986A /* Pods-SenseiOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenseiOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SenseiOSTests/Pods-SenseiOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E28E8FCC1D0856B0003D23A2 /* SenseiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SenseiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28E8FCF1D0856B0003D23A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E28E8FD11D0856B0003D23A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E28E8FD41D0856B0003D23A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E28E8FD61D0856B0003D23A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E28E8FD91D0856B0003D23A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E28E8FDB1D0856B0003D23A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28E8FE01D0856B0003D23A2 /* SenseiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SenseiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28E8FE41D0856B0003D23A2 /* SenseiOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenseiOSTests.swift; sourceTree = "<group>"; };
+		E28E8FE61D0856B0003D23A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E28E8FEB1D0856B0003D23A2 /* SenseiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SenseiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E28E8FEF1D0856B0003D23A2 /* SenseiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenseiOSUITests.swift; sourceTree = "<group>"; };
+		E28E8FF11D0856B0003D23A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E415DEBB73716D6B63AF36F5 /* Pods-SenseiOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenseiOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SenseiOSUITests/Pods-SenseiOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E8D7D140F54C6098BF080B3A /* Pods_SenseiOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SenseiOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED23CD924F8C9B4F097841E1 /* Pods-SenseiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SenseiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SenseiOS/Pods-SenseiOS.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E28E8FC91D0856B0003D23A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95119E6169BCDFD39908807E /* Pods_SenseiOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28E8FDD1D0856B0003D23A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				289B0B93A7748ED18E83C4D4 /* Pods_SenseiOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28E8FE81D0856B0003D23A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E5B206D4999A3F2AD900578 /* Pods_SenseiOSUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD9C37A181E085DC4B4B3D75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0176293FC09AE7523F8B2CA3 /* Pods_SenseiOS.framework */,
+				E8D7D140F54C6098BF080B3A /* Pods_SenseiOSTests.framework */,
+				9206D30EE7AC4E692C0F06E5 /* Pods_SenseiOSUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E28E8FC31D0856B0003D23A2 = {
+			isa = PBXGroup;
+			children = (
+				E28E8FCE1D0856B0003D23A2 /* SenseiOS */,
+				E28E8FE31D0856B0003D23A2 /* SenseiOSTests */,
+				E28E8FEE1D0856B0003D23A2 /* SenseiOSUITests */,
+				E28E8FCD1D0856B0003D23A2 /* Products */,
+				EB28A2EF07FA1D65AEB15D10 /* Pods */,
+				DD9C37A181E085DC4B4B3D75 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E28E8FCD1D0856B0003D23A2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E28E8FCC1D0856B0003D23A2 /* SenseiOS.app */,
+				E28E8FE01D0856B0003D23A2 /* SenseiOSTests.xctest */,
+				E28E8FEB1D0856B0003D23A2 /* SenseiOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E28E8FCE1D0856B0003D23A2 /* SenseiOS */ = {
+			isa = PBXGroup;
+			children = (
+				E28E8FCF1D0856B0003D23A2 /* AppDelegate.swift */,
+				E28E8FD11D0856B0003D23A2 /* ViewController.swift */,
+				E28E8FD31D0856B0003D23A2 /* Main.storyboard */,
+				E28E8FD61D0856B0003D23A2 /* Assets.xcassets */,
+				E28E8FD81D0856B0003D23A2 /* LaunchScreen.storyboard */,
+				E28E8FDB1D0856B0003D23A2 /* Info.plist */,
+			);
+			path = SenseiOS;
+			sourceTree = "<group>";
+		};
+		E28E8FE31D0856B0003D23A2 /* SenseiOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				E28E8FE41D0856B0003D23A2 /* SenseiOSTests.swift */,
+				E28E8FE61D0856B0003D23A2 /* Info.plist */,
+			);
+			path = SenseiOSTests;
+			sourceTree = "<group>";
+		};
+		E28E8FEE1D0856B0003D23A2 /* SenseiOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E28E8FEF1D0856B0003D23A2 /* SenseiOSUITests.swift */,
+				E28E8FF11D0856B0003D23A2 /* Info.plist */,
+			);
+			path = SenseiOSUITests;
+			sourceTree = "<group>";
+		};
+		EB28A2EF07FA1D65AEB15D10 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ED23CD924F8C9B4F097841E1 /* Pods-SenseiOS.debug.xcconfig */,
+				2D464B39D2FA6C1AAB194DC8 /* Pods-SenseiOS.release.xcconfig */,
+				C5E0313186658DD7B2C0986A /* Pods-SenseiOSTests.debug.xcconfig */,
+				4F0FFD6F89F7295DC7FC10B2 /* Pods-SenseiOSTests.release.xcconfig */,
+				B5740128170E79E78940ED15 /* Pods-SenseiOSUITests.debug.xcconfig */,
+				E415DEBB73716D6B63AF36F5 /* Pods-SenseiOSUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E28E8FCB1D0856B0003D23A2 /* SenseiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E28E8FF41D0856B0003D23A2 /* Build configuration list for PBXNativeTarget "SenseiOS" */;
+			buildPhases = (
+				75C6EE03BB374ABC572E3A48 /* [CP] Check Pods Manifest.lock */,
+				E28E8FC81D0856B0003D23A2 /* Sources */,
+				E28E8FC91D0856B0003D23A2 /* Frameworks */,
+				E28E8FCA1D0856B0003D23A2 /* Resources */,
+				180A15F39CF48AE3E457EBE7 /* [CP] Embed Pods Frameworks */,
+				88514DEDC8775D87DADE4536 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SenseiOS;
+			productName = SenseiOS;
+			productReference = E28E8FCC1D0856B0003D23A2 /* SenseiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E28E8FDF1D0856B0003D23A2 /* SenseiOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E28E8FF71D0856B0003D23A2 /* Build configuration list for PBXNativeTarget "SenseiOSTests" */;
+			buildPhases = (
+				06350FE56882FC894E28FA2E /* [CP] Check Pods Manifest.lock */,
+				E28E8FDC1D0856B0003D23A2 /* Sources */,
+				E28E8FDD1D0856B0003D23A2 /* Frameworks */,
+				E28E8FDE1D0856B0003D23A2 /* Resources */,
+				2666487E508601CB4185BBBB /* [CP] Embed Pods Frameworks */,
+				379628E09BF56858FC1F5B24 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E28E8FE21D0856B0003D23A2 /* PBXTargetDependency */,
+			);
+			name = SenseiOSTests;
+			productName = SenseiOSTests;
+			productReference = E28E8FE01D0856B0003D23A2 /* SenseiOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E28E8FEA1D0856B0003D23A2 /* SenseiOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E28E8FFA1D0856B0003D23A2 /* Build configuration list for PBXNativeTarget "SenseiOSUITests" */;
+			buildPhases = (
+				0ED4194BAAE7F5F78CD65194 /* [CP] Check Pods Manifest.lock */,
+				E28E8FE71D0856B0003D23A2 /* Sources */,
+				E28E8FE81D0856B0003D23A2 /* Frameworks */,
+				E28E8FE91D0856B0003D23A2 /* Resources */,
+				0F8F4EF3300A5B7B68BB4382 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E28E8FED1D0856B0003D23A2 /* PBXTargetDependency */,
+			);
+			name = SenseiOSUITests;
+			productName = SenseiOSUITests;
+			productReference = E28E8FEB1D0856B0003D23A2 /* SenseiOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E28E8FC41D0856B0003D23A2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Axa;
+				TargetAttributes = {
+					E28E8FCB1D0856B0003D23A2 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					E28E8FDF1D0856B0003D23A2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = E28E8FCB1D0856B0003D23A2;
+					};
+					E28E8FEA1D0856B0003D23A2 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = E28E8FCB1D0856B0003D23A2;
+					};
+				};
+			};
+			buildConfigurationList = E28E8FC71D0856B0003D23A2 /* Build configuration list for PBXProject "SenseiOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E28E8FC31D0856B0003D23A2;
+			productRefGroup = E28E8FCD1D0856B0003D23A2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E28E8FCB1D0856B0003D23A2 /* SenseiOS */,
+				E28E8FDF1D0856B0003D23A2 /* SenseiOSTests */,
+				E28E8FEA1D0856B0003D23A2 /* SenseiOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E28E8FCA1D0856B0003D23A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28E8FDA1D0856B0003D23A2 /* LaunchScreen.storyboard in Resources */,
+				E28E8FD71D0856B0003D23A2 /* Assets.xcassets in Resources */,
+				E28E8FD51D0856B0003D23A2 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28E8FDE1D0856B0003D23A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28E8FE91D0856B0003D23A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06350FE56882FC894E28FA2E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0ED4194BAAE7F5F78CD65194 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		0F8F4EF3300A5B7B68BB4382 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SenseiOSUITests/Pods-SenseiOSUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		180A15F39CF48AE3E457EBE7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SenseiOS/Pods-SenseiOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2666487E508601CB4185BBBB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SenseiOSTests/Pods-SenseiOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		379628E09BF56858FC1F5B24 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SenseiOSTests/Pods-SenseiOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		75C6EE03BB374ABC572E3A48 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		88514DEDC8775D87DADE4536 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SenseiOS/Pods-SenseiOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E28E8FC81D0856B0003D23A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28E8FD21D0856B0003D23A2 /* ViewController.swift in Sources */,
+				E28E8FD01D0856B0003D23A2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28E8FDC1D0856B0003D23A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28E8FE51D0856B0003D23A2 /* SenseiOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E28E8FE71D0856B0003D23A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E28E8FF01D0856B0003D23A2 /* SenseiOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E28E8FE21D0856B0003D23A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E28E8FCB1D0856B0003D23A2 /* SenseiOS */;
+			targetProxy = E28E8FE11D0856B0003D23A2 /* PBXContainerItemProxy */;
+		};
+		E28E8FED1D0856B0003D23A2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E28E8FCB1D0856B0003D23A2 /* SenseiOS */;
+			targetProxy = E28E8FEC1D0856B0003D23A2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E28E8FD31D0856B0003D23A2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E28E8FD41D0856B0003D23A2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E28E8FD81D0856B0003D23A2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E28E8FD91D0856B0003D23A2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E28E8FF21D0856B0003D23A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E28E8FF31D0856B0003D23A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E28E8FF51D0856B0003D23A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ED23CD924F8C9B4F097841E1 /* Pods-SenseiOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SenseiOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = axa.dil.SenseiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E28E8FF61D0856B0003D23A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D464B39D2FA6C1AAB194DC8 /* Pods-SenseiOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SenseiOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = axa.dil.SenseiOS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E28E8FF81D0856B0003D23A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5E0313186658DD7B2C0986A /* Pods-SenseiOSTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SenseiOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = axa.dil.SenseiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SenseiOS.app/SenseiOS";
+			};
+			name = Debug;
+		};
+		E28E8FF91D0856B0003D23A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4F0FFD6F89F7295DC7FC10B2 /* Pods-SenseiOSTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SenseiOSTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = axa.dil.SenseiOSTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SenseiOS.app/SenseiOS";
+			};
+			name = Release;
+		};
+		E28E8FFB1D0856B0003D23A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5740128170E79E78940ED15 /* Pods-SenseiOSUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = SenseiOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = axa.dil.SenseiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SenseiOS;
+			};
+			name = Debug;
+		};
+		E28E8FFC1D0856B0003D23A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E415DEBB73716D6B63AF36F5 /* Pods-SenseiOSUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = SenseiOSUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = axa.dil.SenseiOSUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = SenseiOS;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E28E8FC71D0856B0003D23A2 /* Build configuration list for PBXProject "SenseiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28E8FF21D0856B0003D23A2 /* Debug */,
+				E28E8FF31D0856B0003D23A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E28E8FF41D0856B0003D23A2 /* Build configuration list for PBXNativeTarget "SenseiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28E8FF51D0856B0003D23A2 /* Debug */,
+				E28E8FF61D0856B0003D23A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E28E8FF71D0856B0003D23A2 /* Build configuration list for PBXNativeTarget "SenseiOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28E8FF81D0856B0003D23A2 /* Debug */,
+				E28E8FF91D0856B0003D23A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E28E8FFA1D0856B0003D23A2 /* Build configuration list for PBXNativeTarget "SenseiOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E28E8FFB1D0856B0003D23A2 /* Debug */,
+				E28E8FFC1D0856B0003D23A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E28E8FC41D0856B0003D23A2 /* Project object */;
+}
