@@ -1,8 +1,10 @@
 PODS:
   - MotionKit (0.8.1)
+  - SwiftCSV (0.3.2)
 
 DEPENDENCIES:
   - MotionKit (from `git@github.com:MHaroonBaig/MotionKit.git`)
+  - SwiftCSV
 
 EXTERNAL SOURCES:
   MotionKit:
@@ -15,7 +17,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   MotionKit: a88a7d7b5ed6652793a3744f6ca58227d8804236
+  SwiftCSV: 8b64b738fc54567d229acb17ce6d584e0dd27560
 
-PODFILE CHECKSUM: 99176ecb71fb301081143a22c5599bdf27abe603
+PODFILE CHECKSUM: c162ee82993bfb2791a3034cd296015d0c05f9da
 
 COCOAPODS: 1.0.1
