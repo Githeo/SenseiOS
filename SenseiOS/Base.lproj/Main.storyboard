@@ -32,37 +32,25 @@
                                     <action selector="startStopButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cWV-O2-8Bd"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-lU-7Xb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qCM-lU-7Xb">
                                 <rect key="frame" x="0.0" y="236" width="600" height="364"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2yv-D4-v0Y">
-                                <rect key="frame" x="276" y="197" width="51" height="31"/>
-                                <connections>
-                                    <action selector="startStopSwitchAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="uEX-Nd-FUD"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Scn-c1-x2i" firstAttribute="centerX" secondItem="2yv-D4-v0Y" secondAttribute="centerX" id="FTp-ip-jPl"/>
-                            <constraint firstItem="2yv-D4-v0Y" firstAttribute="top" secondItem="Scn-c1-x2i" secondAttribute="bottom" constant="56" id="G5R-xc-8rC"/>
-                            <constraint firstItem="2yv-D4-v0Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JyE-4O-EYL"/>
-                            <constraint firstItem="qCM-lU-7Xb" firstAttribute="top" secondItem="2yv-D4-v0Y" secondAttribute="bottom" constant="8" id="VhM-jC-WKM"/>
                             <constraint firstItem="qCM-lU-7Xb" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="YyL-pR-cdZ"/>
                             <constraint firstItem="Scn-c1-x2i" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="55" id="dPi-Al-4dT"/>
                             <constraint firstAttribute="trailing" secondItem="qCM-lU-7Xb" secondAttribute="trailing" id="erb-mU-3Fy"/>
                             <constraint firstItem="qCM-lU-7Xb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fdc-cq-qry"/>
                             <constraint firstItem="Scn-c1-x2i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hbE-Zn-wOE"/>
-                            <constraint firstItem="2yv-D4-v0Y" firstAttribute="centerX" secondItem="qCM-lU-7Xb" secondAttribute="centerX" id="lYS-mI-V48"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="monitorTextView" destination="qCM-lU-7Xb" id="pzq-zR-gv9"/>
                         <outlet property="startButton" destination="Scn-c1-x2i" id="gsy-fh-RFi"/>
-                        <outlet property="switchSwitch" destination="2yv-D4-v0Y" id="ABZ-Bo-hz7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

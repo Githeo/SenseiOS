@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SenseiOS/ViewController.swift"
-            timestampString = "487173090.739281"
+            timestampString = "487173445.011334"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "startCollection()"
             landmarkType = "5">
             <Locations>

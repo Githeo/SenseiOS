@@ -12,7 +12,6 @@ import MotionKit
 class ViewController: UIViewController {
     // MARK: Properties
     @IBOutlet weak var monitorTextView: UITextView!
-    @IBOutlet weak var switchSwitch: UISwitch!
     @IBOutlet weak var startButton: UIButton!
     
     let motionKit = MotionKit();
@@ -128,7 +127,4 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func startStopSwitchAction(sender: UISwitch) {
-        print("Switch pressed")
-    }
 }
