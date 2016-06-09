@@ -18,12 +18,17 @@ class ViewController: UIViewController {
     let motionKit = MotionKit();
     let samplingFrequency = 1.0 // 0.1 = 10Hz, 0.01 = 100Hz
     let gravity = 9.81
+    let CSV_SEP = ";"
     var isRecording = false
     var experimentName:String = "" // Should be like this 2016_04_15-16_52.csv
+    var csvOutputFileName = ""
+    var audioOutputFileName = ""
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        UIApplication.sharedApplication().idleTimerDisabled = true // Keep screen on
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,6 +93,26 @@ class ViewController: UIViewController {
         return dateInFormat
     }
     
+    func writeDataToFile(data:String)-> Bool{
+        //get the file path for the file in the bundle
+        // if it doesn't exist, make it in the bundle
+        /*
+        var fileName = file + ".txt"
+        if let filePath = NSBundle.mainBundle().pathForResource(file, ofType: "txt"){
+            fileName = filePath
+        } else {
+            fileName = NSBundle.mainBundle().bundlePath + fileName
+        }*/
+        return true
+    }
+    
+    func setOutputFileName(expName:String){
+        experimentName = expName
+        monitorTextView.text = expName
+        csvOutputFileName = expName + ".csv"
+        audioOutputFileName = expName + ".mp3"
+    }
+    
     // MARK: Actions
     @IBAction func startStopButtonAction(sender: UIButton) {
         if (isRecording){ // STOPPING
@@ -97,8 +122,7 @@ class ViewController: UIViewController {
             monitorTextView.text = ""
         } else { // STARTING
             isRecording = true
-            experimentName = getExperimentDate()
-            monitorTextView.text = experimentName
+            setOutputFileName(getExperimentDate())
             startButton.backgroundColor = UIColor.redColor()
             startCollection()
         }
