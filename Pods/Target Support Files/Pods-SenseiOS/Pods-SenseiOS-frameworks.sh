@@ -85,9 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/MotionKit/MotionKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftCSV/SwiftCSV.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/MotionKit/MotionKit.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/SwiftCSV/SwiftCSV.framework"
 fi

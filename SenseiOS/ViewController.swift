@@ -37,8 +37,9 @@ class ViewController: UIViewController {
 
     func startCollection(){
         print("EXPERIMENT: \(experimentName)")
+        //print(NSDate() + " IOS ACCELEROMETER X: \(x) Y: \(y) Z: \(z)")
+        
         motionKit.getAccelerometerValues(samplingFrequency) { (x, y, z) in
-            print("IOS ACCELEROMETER X: \(x) Y: \(y) Z: \(z)")
             // Unit=G, gravitation force equal to that exerted by the earth’s gravitational field (9.81 m s−2)
         }
         motionKit.getGyroValues(samplingFrequency){ (x, y, z) in
@@ -126,5 +127,5 @@ class ViewController: UIViewController {
             startCollection()
         }
     }
-    
+
 }

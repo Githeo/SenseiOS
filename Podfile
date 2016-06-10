@@ -7,7 +7,6 @@ target 'SenseiOS' do
 
   # Pods for SenseiOS
 pod 'MotionKit', :git => 'git@github.com:MHaroonBaig/MotionKit.git'
-pod 'SwiftCSV'
 target 'SenseiOSTests' do
     inherit! :search_paths
     # Pods for testing
