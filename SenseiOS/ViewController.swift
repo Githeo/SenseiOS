@@ -22,6 +22,8 @@ class ViewController: UIViewController {
     var experimentName:String = "" // Should be like this 2016_04_15-16_52.csv
     var csvOutputFileName = ""
     var audioOutputFileName = ""
+    var csvOutputFilePath = ""
+    var audioOutputFilePath = ""
     
     
     override func viewDidLoad() {
@@ -106,11 +108,55 @@ class ViewController: UIViewController {
         return true
     }
     
+    func getDocumentsDirectory() -> NSString {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
     func setOutputFileName(expName:String){
         experimentName = expName
         monitorTextView.text = expName
-        csvOutputFileName = expName + ".csv"
-        audioOutputFileName = expName + ".mp3"
+        csvOutputFileName = "\(expName).csv"
+        audioOutputFileName = "\(expName).mp3"
+        csvOutputFilePath = getDocumentsDirectory().stringByAppendingPathComponent(csvOutputFileName)
+        audioOutputFilePath = getDocumentsDirectory().stringByAppendingPathComponent(audioOutputFileName)
+        
+        //let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.CachesDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last! as NSURL
+        
+        for index in 1...10{
+            // let string = "\(NSDate())\n"
+            let stringToWrite = "Ciao \(index)\n"
+            let dataToWrite = stringToWrite.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+            /*
+            print("printing \(stringToWrite) to file")
+            do {
+                try stringToWrite.writeToFile(csvOutputFilePath, atomically: true, encoding: NSUTF8StringEncoding)
+                
+            } catch {
+                print("Failed to write to " + csvOutputFileName)
+            }*/
+            
+            if NSFileManager.defaultManager().fileExistsAtPath(csvOutputFilePath) {
+                if let fileHandle = NSFileHandle(forUpdatingAtPath: csvOutputFilePath) {
+                    fileHandle.seekToEndOfFile()
+                    fileHandle.writeData(dataToWrite)
+                    fileHandle.closeFile()
+                }
+                else {
+                    print("Can't write")
+                }
+            }
+            else {
+                NSFileManager.defaultManager().createFileAtPath(csvOutputFilePath, contents: dataToWrite, attributes: nil)
+            }
+
+        }
+        
+        /*
+        csvOutputFileName = documentsDirectory.stringByAppendingPathComponent(expName + ".csv")
+        audioOutputFileName = documentsDirectory.stringByAppendingPathComponent(expName + ".mp3")
+        */
     }
     
     // MARK: Actions
