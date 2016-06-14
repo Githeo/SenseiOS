@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     
     let motionKit = MotionKit();
-    let samplingFrequency = 1.0 // 0.1 = 10Hz, 0.01 = 100Hz
+    let samplingFrequency = 0.1 // 0.1 = 10Hz, 0.01 = 100Hz
     let gravity = 9.81
     let CSV_SEP = ";"
     var isRecording = false
@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     var audioOutputFileName = ""
     var csvOutputFilePath = ""
     var audioOutputFilePath = ""
+    var fileHandle: NSFileHandle = NSFileHandle.init()
     
     
     override func viewDidLoad() {
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
         motionKit.getMagnetometerValues(samplingFrequency){
             (x, y, z) in
             print("IOS MAGNETOMETER X: \(x) Y: \(y) Z: \(z)")
+            self.writeDataToFile("IOS MAGNETOMETER X: \(x) Y: \(y) Z: \(z)\n")
             // Unit:
         }
         motionKit.getDeviceMotionObject(samplingFrequency){
@@ -95,7 +97,7 @@ class ViewController: UIViewController {
         return dateInFormat
     }
     
-    func writeDataToFile(data:String)-> Bool{
+    func writeDataToFile(dataString:String)-> Bool{
         //get the file path for the file in the bundle
         // if it doesn't exist, make it in the bundle
         /*
@@ -105,6 +107,9 @@ class ViewController: UIViewController {
         } else {
             fileName = NSBundle.mainBundle().bundlePath + fileName
         }*/
+        let dataToWrite = dataString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
+        fileHandle.seekToEndOfFile()
+        fileHandle.writeData(dataToWrite)
         return true
     }
     
@@ -121,21 +126,20 @@ class ViewController: UIViewController {
         audioOutputFileName = "\(expName).mp3"
         csvOutputFilePath = getDocumentsDirectory().stringByAppendingPathComponent(csvOutputFileName)
         audioOutputFilePath = getDocumentsDirectory().stringByAppendingPathComponent(audioOutputFileName)
+
+        if !NSFileManager.defaultManager().fileExistsAtPath(csvOutputFilePath){
+            NSFileManager.defaultManager().createFileAtPath(csvOutputFilePath, contents: nil, attributes: nil)
+        }
+        fileHandle = NSFileHandle(forUpdatingAtPath: csvOutputFilePath)!
         
-        //let dir:NSURL = NSFileManager.defaultManager().URLsForDirectory(NSSearchPathDirectory.CachesDirectory, inDomains: NSSearchPathDomainMask.UserDomainMask).last! as NSURL
-        
+        /*
         for index in 1...10{
             // let string = "\(NSDate())\n"
             let stringToWrite = "Ciao \(index)\n"
             let dataToWrite = stringToWrite.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-            /*
-            print("printing \(stringToWrite) to file")
-            do {
-                try stringToWrite.writeToFile(csvOutputFilePath, atomically: true, encoding: NSUTF8StringEncoding)
-                
-            } catch {
-                print("Failed to write to " + csvOutputFileName)
-            }*/
+
+            // stringToWrite.writeToFile(csvOutputFilePath, atomically: true, encoding: NSUTF8StringEncoding)
+
             
             if NSFileManager.defaultManager().fileExistsAtPath(csvOutputFilePath) {
                 if let fileHandle = NSFileHandle(forUpdatingAtPath: csvOutputFilePath) {
@@ -152,6 +156,7 @@ class ViewController: UIViewController {
             }
 
         }
+         */
         
         /*
         csvOutputFileName = documentsDirectory.stringByAppendingPathComponent(expName + ".csv")
@@ -161,12 +166,13 @@ class ViewController: UIViewController {
     
     // MARK: Actions
     @IBAction func startStopButtonAction(sender: UIButton) {
-        if (isRecording){ // STOPPING
+        if (isRecording){ // STOPPING COLLECTION
             isRecording = false
             startButton.backgroundColor = UIColor.greenColor()
             stopCollection()
+            fileHandle.closeFile()
             monitorTextView.text = ""
-        } else { // STARTING
+        } else { // STARTING COLLECTION
             isRecording = true
             setOutputFileName(getExperimentDate())
             startButton.backgroundColor = UIColor.redColor()
