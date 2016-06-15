@@ -5,6 +5,7 @@
 //  Created by Axa on 08/06/16.
 //  Copyright © 2016 Axa. All rights reserved.
 //
+// // NSDate().timeIntervalSince1970 * 1000 =  time in milliseconds since the UNIX epoch (January 1, 1970 00:00:00 UTC)
 
 import UIKit
 import MotionKit
@@ -40,18 +41,18 @@ class ViewController: UIViewController {
 
     func startCollection(){
         print("EXPERIMENT: \(experimentName)")
-        //print(NSDate() + " IOS ACCELEROMETER X: \(x) Y: \(y) Z: \(z)")
         
         motionKit.getAccelerometerValues(samplingFrequency) { (x, y, z) in
+            print(" IOS ACCELEROMETER X: \(x) Y: \(y) Z: \(z)")
             // Unit=G, gravitation force equal to that exerted by the earth’s gravitational field (9.81 m s−2)
         }
         motionKit.getGyroValues(samplingFrequency){ (x, y, z) in
-            print("IOS GYRO X: \(x) Y: \(y) Z: \(z)")
+            print("IOS GYRO\(self.CSV_SEP)\((NSDate().timeIntervalSince1970 * 1000))\(self.CSV_SEP) X: \(x) Y: \(y) Z: \(z)")
             // Unit=radiant/sec
         }
         motionKit.getMagnetometerValues(samplingFrequency){
             (x, y, z) in
-            print("IOS MAGNETOMETER X: \(x) Y: \(y) Z: \(z)")
+            print("IOS MAGNETOMETER X:\(x) Y: \(y) Z: \(z)")
             self.writeDataToFile("IOS MAGNETOMETER X: \(x) Y: \(y) Z: \(z)\n")
             // Unit:
         }
@@ -98,15 +99,6 @@ class ViewController: UIViewController {
     }
     
     func writeDataToFile(dataString:String)-> Bool{
-        //get the file path for the file in the bundle
-        // if it doesn't exist, make it in the bundle
-        /*
-        var fileName = file + ".txt"
-        if let filePath = NSBundle.mainBundle().pathForResource(file, ofType: "txt"){
-            fileName = filePath
-        } else {
-            fileName = NSBundle.mainBundle().bundlePath + fileName
-        }*/
         let dataToWrite = dataString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
         fileHandle.seekToEndOfFile()
         fileHandle.writeData(dataToWrite)
