@@ -95,9 +95,19 @@ class ViewController: UIViewController {
             self.writeDataToFile("IOS PITCH-ROLL-YAW\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(attitude.pitch)\(self.DATA_SEP) \(attitude.roll)\(self.DATA_SEP) \(attitude.yaw)\(self.CLOSE_DATA_ARRAY)")
             // print("PITCH: \(attitude.pitch) \(attitude.roll) \(attitude.yaw))")
         }
+        // --------- LINEAR ACCELERATION ----- //
+        // Unit = m/s^2 (G originally) without gravity
         motionKit.getAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
-            print("DM acceleration \(x) \(y) \(z)")
+            self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY) ")
+            //print("DM acceleration \(x) \(y) \(z)")
         }
+        // ------------ GRAVITY --------------- //
+        // Unit = m/s^2 (G originally)
+        motionKit.getGravityAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
+            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY) ")
+            //print("IOS DM GRAVITY \(x) \(y) \(z)")
+        }
+        
     }
     
     func stopCollection(){
