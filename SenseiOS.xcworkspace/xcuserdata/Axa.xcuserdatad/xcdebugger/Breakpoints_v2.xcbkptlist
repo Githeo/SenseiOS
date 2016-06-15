@@ -10,59 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SenseiOS/ViewController.swift"
-            timestampString = "487697073.06582"
+            timestampString = "487702072.8785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "startCollection()"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SenseiOS.ViewController.startCollection () -&gt; ()"
-                  moduleName = "SenseiOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Axa/Projects/SenseiOS/SenseiOS/ViewController.swift"
-                  timestampString = "487096389.036582"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "744">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SenseiOS.ViewController.(startCollection () -&gt; ()).(closure #5)"
-                  moduleName = "SenseiOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Axa/Projects/SenseiOS/SenseiOS/ViewController.swift"
-                  timestampString = "487096389.037795"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SenseiOS/ViewController.swift"
-            timestampString = "487700266.118985"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
             landmarkName = "setOutputFileName(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SenseiOS/ViewController.swift"
-            timestampString = "487700266.118985"
+            timestampString = "487702072.8785"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "setOutputFileName(_:)"
             landmarkType = "5">
          </BreakpointContent>

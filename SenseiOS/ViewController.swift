@@ -65,29 +65,7 @@ class ViewController: UIViewController {
             self.writeDataToFile("IOS Magnetometer\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY)\n")
             // print("IOS Magnetometer\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP)\(y * self.GRAVITY)\(self.DATA_SEP)\(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n")
         }
-        motionKit.getDeviceMotionObject(samplingFrequency){
-            (deviceMotion) -> () in
-            let accelerationX = deviceMotion.userAcceleration.x
-            let accelerationY = deviceMotion.userAcceleration.y
-            let accelerationZ = deviceMotion.userAcceleration.z
-            print("IOS DM ACCELERATION X: \(accelerationX) Y: \(accelerationY) Z: \(accelerationZ)")
-            // Unit = G. It's the linear acceleration
-            
-            let gravityX = deviceMotion.gravity.x
-            let gravityY = deviceMotion.gravity.y
-            let gravityZ = deviceMotion.gravity.z
-            print("IOS GRAVITY X: \(gravityX) Y: \(gravityY) Z: \(gravityZ)")
-            // Unity = G
-            
-            let rotationX = deviceMotion.rotationRate.x
-            let rotationY = deviceMotion.rotationRate.y
-            let rotationZ = deviceMotion.rotationRate.z
-            print("IOS ROTATION X: \(rotationX) Y: \(rotationY) Z: \(rotationZ)")
-            
-            print("IOS Pitch-roll-yawn \(deviceMotion.attitude.pitch) \(deviceMotion.attitude.roll) \(deviceMotion.attitude.yaw)")
-            //var magneticFieldX = deviceMotion.magneticField.x
-            //var attitideYaw = deviceMotion.attitude.yaw
-        }
+
         // ------ ROTATION MATRIX -------- //
         // 3x3 [11, 12, 13, 21, 22, 23, 31, 32, 33]
         motionKit.getAttitudeFromDeviceMotion(samplingFrequency) { (attitude) in
@@ -95,12 +73,14 @@ class ViewController: UIViewController {
             self.writeDataToFile("IOS PITCH-ROLL-YAW\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(attitude.pitch)\(self.DATA_SEP) \(attitude.roll)\(self.DATA_SEP) \(attitude.yaw)\(self.CLOSE_DATA_ARRAY)")
             // print("PITCH: \(attitude.pitch) \(attitude.roll) \(attitude.yaw))")
         }
+        
         // --------- LINEAR ACCELERATION ----- //
         // Unit = m/s^2 (G originally) without gravity
         motionKit.getAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
             self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY) ")
             //print("DM acceleration \(x) \(y) \(z)")
         }
+        
         // ------------ GRAVITY --------------- //
         // Unit = m/s^2 (G originally)
         motionKit.getGravityAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
@@ -108,6 +88,11 @@ class ViewController: UIViewController {
             //print("IOS DM GRAVITY \(x) \(y) \(z)")
         }
         
+        // ------------ ROTATION RATE --------- //
+        motionKit.getRotationRateFromDeviceMotion(samplingFrequency) { (x, y, z) in
+            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate())\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY) ")
+        }
+
     }
     
     func stopCollection(){
