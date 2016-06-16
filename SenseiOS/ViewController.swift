@@ -9,8 +9,10 @@
 
 import UIKit
 import MotionKit
+import CoreMotion
+import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AVAudioRecorderDelegate {
     // MARK: Properties
     @IBOutlet weak var monitorTextView: UITextView!
     @IBOutlet weak var startButton: UIButton!
@@ -30,11 +32,39 @@ class ViewController: UIViewController {
     var audioOutputFilePath = ""
     var fileHandle: NSFileHandle = NSFileHandle.init()
     
+    //var audioRecorder: AVAudioRecorder = AVAudioRecorder()
+    var recordingSession: AVAudioSession!
+    var audioRecorder: AVAudioRecorder!
+    
+    //let motionManager: CMMotionManager = CMMotionManager()
+    var motionManager: CMMotionManager!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         UIApplication.sharedApplication().idleTimerDisabled = true // Keep screen on
+        
+        motionManager = CMMotionManager()
+        motionManager.deviceMotionUpdateInterval = samplingFrequency
+        
+        recordingSession = AVAudioSession.sharedInstance()
+        do {
+            try recordingSession.setCategory(AVAudioSessionCategoryPlayAndRecord)
+            try recordingSession.setActive(true)
+            recordingSession.requestRecordPermission() { [unowned self] (allowed: Bool) -> Void in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if allowed {
+                        print("Permission granted to record audio")
+                    } else {
+                        print("Permission denied to record audio!")
+                    }
+                }
+            }
+        } catch {
+            // failed to record!
+        }
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -44,6 +74,29 @@ class ViewController: UIViewController {
 
     func startCollection(){
         print("EXPERIMENT: \(experimentName)")
+        
+        if motionManager.deviceMotionAvailable{
+            let queue = NSOperationQueue()
+            motionManager.startDeviceMotionUpdatesToQueue(queue, withHandler:
+                {data, error in
+                    
+                    guard let data = data else{
+                        return
+                    }
+                    self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.userAcceleration.x * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.y * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n ")
+                    print("DM acceleration \(data.userAcceleration.x) \(data.userAcceleration.y) \(data.userAcceleration.z)")
+                }
+            )
+        } else {
+            print("Accelerometer is not available")
+        }
+        
+        // --------- LINEAR ACCELERATION ----- //
+        // Unit = m/s^2 (G originally) without gravity
+        motionKit.getAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
+            print("DM acceleration \(x) \(y) \(z)")
+            self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n ")
+        }
         
         // ------- ACCELEROMETER ---------//
         // Unit = normally is in G, I convert in m/s^2. This includes gravity.
@@ -69,28 +122,23 @@ class ViewController: UIViewController {
         // ------ ROTATION MATRIX -------- //
         // 3x3 [11, 12, 13, 21, 22, 23, 31, 32, 33]
         motionKit.getAttitudeFromDeviceMotion(samplingFrequency) { (attitude) in
-            self.writeDataToFile("IOS Rotation Matrix\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(attitude.rotationMatrix.m11)\(self.DATA_SEP) \(attitude.rotationMatrix.m12)\(self.DATA_SEP) \(attitude.rotationMatrix.m13)\(self.DATA_SEP) \(attitude.rotationMatrix.m21)\(self.DATA_SEP) \(attitude.rotationMatrix.m22)\(self.DATA_SEP) \(attitude.rotationMatrix.m23)\(self.DATA_SEP) \(attitude.rotationMatrix.m31)\(self.DATA_SEP) \(attitude.rotationMatrix.m32)\(self.DATA_SEP) \(attitude.rotationMatrix.m33)\(self.CLOSE_DATA_ARRAY)")
-            self.writeDataToFile("IOS PITCH-ROLL-YAW\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(attitude.pitch)\(self.DATA_SEP) \(attitude.roll)\(self.DATA_SEP) \(attitude.yaw)\(self.CLOSE_DATA_ARRAY)")
+            self.writeDataToFile("IOS Rotation Matrix\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(attitude.rotationMatrix.m11)\(self.DATA_SEP) \(attitude.rotationMatrix.m12)\(self.DATA_SEP) \(attitude.rotationMatrix.m13)\(self.DATA_SEP) \(attitude.rotationMatrix.m21)\(self.DATA_SEP) \(attitude.rotationMatrix.m22)\(self.DATA_SEP) \(attitude.rotationMatrix.m23)\(self.DATA_SEP) \(attitude.rotationMatrix.m31)\(self.DATA_SEP) \(attitude.rotationMatrix.m32)\(self.DATA_SEP) \(attitude.rotationMatrix.m33)\(self.CLOSE_DATA_ARRAY)\n ")
+            self.writeDataToFile("IOS PITCH-ROLL-YAW\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(attitude.pitch)\(self.DATA_SEP) \(attitude.roll)\(self.DATA_SEP) \(attitude.yaw)\(self.CLOSE_DATA_ARRAY)\n ")
             // print("PITCH: \(attitude.pitch) \(attitude.roll) \(attitude.yaw))")
-        }
-        
-        // --------- LINEAR ACCELERATION ----- //
-        // Unit = m/s^2 (G originally) without gravity
-        motionKit.getAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
-            self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY) ")
-            //print("DM acceleration \(x) \(y) \(z)")
         }
         
         // ------------ GRAVITY --------------- //
         // Unit = m/s^2 (G originally)
         motionKit.getGravityAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
-            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY) ")
-            //print("IOS DM GRAVITY \(x) \(y) \(z)")
+            print("IOS DM GRAVITY \(x) \(y) \(z)")
+            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n ")
+            
         }
         
         // ------------ ROTATION RATE --------- //
         motionKit.getRotationRateFromDeviceMotion(samplingFrequency) { (x, y, z) in
-            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate())\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY) ")
+            //print("DM Rotation rate")
+            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate())\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY)\n ")
         }
 
     }
@@ -100,6 +148,10 @@ class ViewController: UIViewController {
         motionKit.stopAccelerometerUpdates()
         motionKit.stopmagnetometerUpdates()
         motionKit.stopDeviceMotionUpdates()
+        if motionManager.deviceMotionAvailable{
+            motionManager.stopDeviceMotionUpdates()
+        }
+        //motionManager.stopDeviceMotionUpdates()
     }
     
     func getExperimentDate() -> String{
@@ -136,36 +188,42 @@ class ViewController: UIViewController {
         }
         fileHandle = NSFileHandle(forUpdatingAtPath: csvOutputFilePath)!
         
-        /*
-        for index in 1...10{
-            // let string = "\(NSDate())\n"
-            let stringToWrite = "Ciao \(index)\n"
-            let dataToWrite = stringToWrite.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!
-
-            // stringToWrite.writeToFile(csvOutputFilePath, atomically: true, encoding: NSUTF8StringEncoding)
-
-            
-            if NSFileManager.defaultManager().fileExistsAtPath(csvOutputFilePath) {
-                if let fileHandle = NSFileHandle(forUpdatingAtPath: csvOutputFilePath) {
-                    fileHandle.seekToEndOfFile()
-                    fileHandle.writeData(dataToWrite)
-                    fileHandle.closeFile()
-                }
-                else {
-                    print("Can't write")
-                }
-            }
-            else {
-                NSFileManager.defaultManager().createFileAtPath(csvOutputFilePath, contents: dataToWrite, attributes: nil)
-            }
-
+    }
+    
+    func startAudioRecording(){
+        let settings: [String : AnyObject] = [
+            AVFormatIDKey:Int(kAudioFormatAppleIMA4), //Int required in Swift2
+            AVSampleRateKey:44100.0,
+            AVNumberOfChannelsKey:2,
+            AVEncoderBitRateKey:12800,
+            AVLinearPCMBitDepthKey:16,
+            AVEncoderAudioQualityKey:AVAudioQuality.Max.rawValue
+        ]
+        let audioFileUrl = NSURL(fileURLWithPath: audioOutputFilePath) // or let fileUrl = NSURL(string: filePath)
+        do {
+            audioRecorder = try AVAudioRecorder(URL: audioFileUrl, settings: settings)
+            audioRecorder.delegate = self
+            audioRecorder.prepareToRecord()
+            audioRecorder.record()
+        } catch {
+            finishAudioRecording(success: false)
         }
-         */
-        
-        /*
-        csvOutputFileName = documentsDirectory.stringByAppendingPathComponent(expName + ".csv")
-        audioOutputFileName = documentsDirectory.stringByAppendingPathComponent(expName + ".mp3")
-        */
+    }
+    
+    func finishAudioRecording(success success: Bool) {
+        audioRecorder.stop()
+        //audioRecorder = nil
+        if success {
+            print("Audio recording - Stopped")
+        } else {
+            print("Audio recording - Failed")
+        }
+    }
+    
+    func audioRecorderDidFinishRecording(recorder: AVAudioRecorder, successfully flag: Bool) {
+        if !flag {
+            finishAudioRecording(success: false)
+        }
     }
     
     // MARK: Actions
@@ -176,11 +234,14 @@ class ViewController: UIViewController {
             stopCollection()
             fileHandle.closeFile()
             monitorTextView.text = ""
+            //finishAudioRecording(success: true)
         } else { // STARTING COLLECTION
             isRecording = true
             setOutputFileName(getExperimentDate())
             startButton.backgroundColor = UIColor.redColor()
             startCollection()
+            //startAudioRecording()
+            //motionManager.startDeviceMotionUpdates()
         }
     }
 
