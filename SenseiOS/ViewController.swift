@@ -18,7 +18,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var startButton: UIButton!
     
     let motionKit = MotionKit();
-    let samplingFrequency = 0.1 // 0.1 = 10Hz, 0.01 = 100Hz
+    let samplingFrequency = 0.01 // 0.1 = 10Hz, 0.01 = 100Hz
     let GRAVITY = 9.81
     let CSV_SEP = ";"
     let OPEN_DATA_ARRAY = "["   // to group arrays. e.g., [x, y, z]
@@ -36,7 +36,6 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
     
-    //let motionManager: CMMotionManager = CMMotionManager()
     var motionManager: CMMotionManager!
     
     let dateFormatter = NSDateFormatter() // yyyy-MM-dd HH:mm:ssSSS
@@ -90,69 +89,58 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
                         return
                     }
                     let date = NSDate()
-                    self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.userAcceleration.x * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.y * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n ")
+                    // ---------- LINEAR ACCELERATION --------//
+                    self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.userAcceleration.x * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.y * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n")
+                    //print("DM acceleration \(date.timeIntervalSince1970*1000) \(self.dateFormatter.stringFromDate(date)) \(data.userAcceleration.x) \(data.userAcceleration.y) \(data.userAcceleration.z)")
                     
-                    print("DM acceleration \(date.timeIntervalSince1970*1000) \(self.dateFormatter.stringFromDate(date)) \(data.userAcceleration.x) \(data.userAcceleration.y) \(data.userAcceleration.z)")
+                    // ---------- ROTATION MATRIX ------------//
+                    self.writeDataToFile("IOS DM Rotation Matrix\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.attitude.rotationMatrix.m11)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m12)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m13)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m21)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m22)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m23)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m31)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m32)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m33)\(self.CLOSE_DATA_ARRAY)\n")
+                    //print("DM rotation matrix \(data.attitude.rotationMatrix)")
                     
-                    self.writeDataToFile("IOS DM Rotation Matrix\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.attitude.rotationMatrix.m11)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m12)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m13)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m21)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m22)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m23)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m11)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m31)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m32)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m32)\(self.CLOSE_DATA_ARRAY)\n ")
-                    print("DM rotation matrix \(data.attitude.rotationMatrix)")
+                    // ----------- ROTATION VECTOR ------------//
+                    self.writeDataToFile("IOS DM Pith-Roll-Yaw\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.attitude.pitch)\(self.DATA_SEP) \(data.attitude.roll)\(self.DATA_SEP) \(data.attitude.yaw)\(self.CLOSE_DATA_ARRAY)\n")
+                    //print("DM rotation vector \(data.attitude.pitch)")
                     
-                    self.writeDataToFile("IOS DM Pith-Roll-Yaw\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.attitude.pitch)\(self.DATA_SEP) \(data.attitude.roll)\(self.DATA_SEP) \(data.attitude.yaw)\(self.CLOSE_DATA_ARRAY)\n ")
-                    print("DM rotation vector \(data.attitude.pitch)")
+                    // ----------- CALIBRATED Gyroscope -------//
+                    self.writeDataToFile("IOS DM Calibrated Gyroscope\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.rotationRate.x)\(self.DATA_SEP) \(data.rotationRate.y)\(self.DATA_SEP) \(data.rotationRate.z)\(self.CLOSE_DATA_ARRAY)\n")
+                    print("IOS DM Calibrated Gyroscope \(data.rotationRate.x)")
+                    
                 }
             )
         } else {
-            print("DM Linear Acceleration is not available")
-        }
-        
-        // --------- LINEAR ACCELERATION ----- //
-        // Unit = m/s^2 (G originally) without gravity
-        motionKit.getAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
-            print("DM acceleration \(x) \(y) \(z)")
-            self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n ")
+            print("Device Motion is not available!")
         }
         
         // ------- ACCELEROMETER ---------//
         // Unit = normally is in G, I convert in m/s^2. This includes gravity.
         // Timestamp unit is milliseconds. e.g., 1466001929014.57
         motionKit.getAccelerometerValues(samplingFrequency) { (x, y, z) in
-            self.writeDataToFile("IOS Accelerometer\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n" )
+            let date = NSDate()
+            self.writeDataToFile("IOS Accelerometer\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n" )
             //print("IOS Accelerometer\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP)\(y * self.GRAVITY)\(self.DATA_SEP)\(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)")
         }
         // --------- GYROSCOPE -----------//
         // Unit = radiant/sec
         motionKit.getGyroValues(samplingFrequency){ (x, y, z) in
-            self.writeDataToFile("IOS Gyroscope\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY)\n")
+            let date = NSDate()
+            self.writeDataToFile("IOS Gyroscope\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY)\n")
             //print("IOS Gyroscope\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP)\(y)\(self.DATA_SEP)\(z)\(self.CLOSE_DATA_ARRAY)\n")
         }
         // -------- MAGNETOMETER ---------//
         // Unit = microTesla
         motionKit.getMagnetometerValues(samplingFrequency){
             (x, y, z) in
-            self.writeDataToFile("IOS Magnetometer\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY)\n")
+            let date = NSDate()
+            self.writeDataToFile("IOS Magnetometer\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY)\n")
             // print("IOS Magnetometer\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP)\(y * self.GRAVITY)\(self.DATA_SEP)\(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n")
-        }
-
-        // ------ ROTATION MATRIX -------- //
-        // 3x3 [11, 12, 13, 21, 22, 23, 31, 32, 33]
-        motionKit.getAttitudeFromDeviceMotion(samplingFrequency) { (attitude) in
-            self.writeDataToFile("IOS Rotation Matrix\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(attitude.rotationMatrix.m11)\(self.DATA_SEP) \(attitude.rotationMatrix.m12)\(self.DATA_SEP) \(attitude.rotationMatrix.m13)\(self.DATA_SEP) \(attitude.rotationMatrix.m21)\(self.DATA_SEP) \(attitude.rotationMatrix.m22)\(self.DATA_SEP) \(attitude.rotationMatrix.m23)\(self.DATA_SEP) \(attitude.rotationMatrix.m31)\(self.DATA_SEP) \(attitude.rotationMatrix.m32)\(self.DATA_SEP) \(attitude.rotationMatrix.m33)\(self.CLOSE_DATA_ARRAY)\n ")
-            self.writeDataToFile("IOS PITCH-ROLL-YAW\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(attitude.pitch)\(self.DATA_SEP) \(attitude.roll)\(self.DATA_SEP) \(attitude.yaw)\(self.CLOSE_DATA_ARRAY)\n ")
-            // print("PITCH: \(attitude.pitch) \(attitude.roll) \(attitude.yaw))")
         }
         
         // ------------ GRAVITY --------------- //
         // Unit = m/s^2 (G originally)
         motionKit.getGravityAccelerationFromDeviceMotion(samplingFrequency) { (x, y, z) in
-            print("IOS DM GRAVITY \(x) \(y) \(z)")
-            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n ")
-            
-        }
-        
-        // ------------ ROTATION RATE --------- //
-        motionKit.getRotationRateFromDeviceMotion(samplingFrequency) { (x, y, z) in
-            //print("DM Rotation rate")
-            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate())\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x)\(self.DATA_SEP) \(y)\(self.DATA_SEP) \(z)\(self.CLOSE_DATA_ARRAY)\n ")
+            let date = NSDate()
+            //print("IOS DM GRAVITY \(x) \(y) \(z)")
+            self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n")
         }
 
     }
@@ -205,14 +193,11 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func startAudioRecording(){
-        let settings: [String : AnyObject] = [
-            AVFormatIDKey:Int(kAudioFormatAppleIMA4), //Int required in Swift2
-            AVSampleRateKey:44100.0,
-            AVNumberOfChannelsKey:2,
-            AVEncoderBitRateKey:12800,
-            AVLinearPCMBitDepthKey:16,
-            AVEncoderAudioQualityKey:AVAudioQuality.Max.rawValue
-        ]
+        let settings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
+                         AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEGLayer3)),
+                         AVNumberOfChannelsKey : NSNumber(int: 1),
+                         AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.High.rawValue)),
+                         AVEncoderBitRateKey : NSNumber(int: Int32(320000))]
         let audioFileUrl = NSURL(fileURLWithPath: audioOutputFilePath) // or let fileUrl = NSURL(string: filePath)
         do {
             audioRecorder = try AVAudioRecorder(URL: audioFileUrl, settings: settings)
