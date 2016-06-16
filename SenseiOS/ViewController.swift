@@ -39,11 +39,15 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     //let motionManager: CMMotionManager = CMMotionManager()
     var motionManager: CMMotionManager!
     
+    let dateFormatter = NSDateFormatter() // yyyy-MM-dd HH:mm:ssSSS
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         UIApplication.sharedApplication().idleTimerDisabled = true // Keep screen on
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
         
         motionManager = CMMotionManager()
         motionManager.deviceMotionUpdateInterval = samplingFrequency
@@ -75,6 +79,8 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     func startCollection(){
         print("EXPERIMENT: \(experimentName)")
         
+        // ---------- DEVICE MOTION -------- //
+        // Linear acceleration unit = m/s^2 (G originally). DM does not include gravity
         if motionManager.deviceMotionAvailable{
             let queue = NSOperationQueue()
             motionManager.startDeviceMotionUpdatesToQueue(queue, withHandler:
@@ -83,12 +89,20 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
                     guard let data = data else{
                         return
                     }
-                    self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(NSDate().timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.userAcceleration.x * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.y * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n ")
-                    print("DM acceleration \(data.userAcceleration.x) \(data.userAcceleration.y) \(data.userAcceleration.z)")
+                    let date = NSDate()
+                    self.writeDataToFile("IOS DM Linear Acceleration\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.userAcceleration.x * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.y * self.GRAVITY)\(self.DATA_SEP) \(data.userAcceleration.z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n ")
+                    
+                    print("DM acceleration \(date.timeIntervalSince1970*1000) \(self.dateFormatter.stringFromDate(date)) \(data.userAcceleration.x) \(data.userAcceleration.y) \(data.userAcceleration.z)")
+                    
+                    self.writeDataToFile("IOS DM Rotation Matrix\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.attitude.rotationMatrix.m11)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m12)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m13)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m21)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m22)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m23)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m11)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m31)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m32)\(self.DATA_SEP) \(data.attitude.rotationMatrix.m32)\(self.CLOSE_DATA_ARRAY)\n ")
+                    print("DM rotation matrix \(data.attitude.rotationMatrix)")
+                    
+                    self.writeDataToFile("IOS DM Pith-Roll-Yaw\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.attitude.pitch)\(self.DATA_SEP) \(data.attitude.roll)\(self.DATA_SEP) \(data.attitude.yaw)\(self.CLOSE_DATA_ARRAY)\n ")
+                    print("DM rotation vector \(data.attitude.pitch)")
                 }
             )
         } else {
-            print("Accelerometer is not available")
+            print("DM Linear Acceleration is not available")
         }
         
         // --------- LINEAR ACCELERATION ----- //
