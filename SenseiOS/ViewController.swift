@@ -35,6 +35,19 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     //var audioRecorder: AVAudioRecorder = AVAudioRecorder()
     var recordingSession: AVAudioSession!
     var audioRecorder: AVAudioRecorder!
+    /*let audioSettings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
+                    AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEGLayer3)),
+                    AVNumberOfChannelsKey : NSNumber(int: 1),
+                    AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.High.rawValue)),
+                    AVEncoderBitRateKey : NSNumber(int: Int32(320000))]*/
+    let audioSettings : [String : AnyObject] = [
+        AVFormatIDKey:Int(kAudioFormatAppleIMA4), //Int required in Swift2
+        AVSampleRateKey:44100.0,
+        AVNumberOfChannelsKey:2,
+        AVEncoderBitRateKey:12800,
+        AVLinearPCMBitDepthKey:16,
+        AVEncoderAudioQualityKey:AVAudioQuality.Max.rawValue
+    ]
     
     var motionManager: CMMotionManager!
     
@@ -103,7 +116,7 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
                     
                     // ----------- CALIBRATED Gyroscope -------//
                     self.writeDataToFile("IOS DM Calibrated Gyroscope\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(data.rotationRate.x)\(self.DATA_SEP) \(data.rotationRate.y)\(self.DATA_SEP) \(data.rotationRate.z)\(self.CLOSE_DATA_ARRAY)\n")
-                    print("IOS DM Calibrated Gyroscope \(data.rotationRate.x)")
+                    //print("IOS DM Calibrated Gyroscope \(data.rotationRate.x)")
                     
                 }
             )
@@ -142,7 +155,6 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
             //print("IOS DM GRAVITY \(x) \(y) \(z)")
             self.writeDataToFile("IOS DM Gravity\(self.CSV_SEP)\(date.timeIntervalSince1970 * 1000)\(self.CSV_SEP)\(self.dateFormatter.stringFromDate(date))\(self.CSV_SEP)\(self.OPEN_DATA_ARRAY)\(x * self.GRAVITY)\(self.DATA_SEP) \(y * self.GRAVITY)\(self.DATA_SEP) \(z * self.GRAVITY)\(self.CLOSE_DATA_ARRAY)\n")
         }
-
     }
     
     func stopCollection(){
@@ -153,7 +165,6 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
         if motionManager.deviceMotionAvailable{
             motionManager.stopDeviceMotionUpdates()
         }
-        //motionManager.stopDeviceMotionUpdates()
     }
     
     func getExperimentDate() -> String{
@@ -193,25 +204,31 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     func startAudioRecording(){
-        let settings = [AVSampleRateKey : NSNumber(float: Float(44100.0)),
-                         AVFormatIDKey : NSNumber(int: Int32(kAudioFormatMPEGLayer3)),
-                         AVNumberOfChannelsKey : NSNumber(int: 1),
-                         AVEncoderAudioQualityKey : NSNumber(int: Int32(AVAudioQuality.High.rawValue)),
-                         AVEncoderBitRateKey : NSNumber(int: Int32(320000))]
         let audioFileUrl = NSURL(fileURLWithPath: audioOutputFilePath) // or let fileUrl = NSURL(string: filePath)
         do {
-            audioRecorder = try AVAudioRecorder(URL: audioFileUrl, settings: settings)
+            print("\(audioFileUrl) \(audioSettings)")
+            audioRecorder = try AVAudioRecorder(URL: audioFileUrl, settings: audioSettings)
+            if audioRecorder==nil{
+                print("audioRecorde is nil")
+            }
+            print("Definig delegate...")
             audioRecorder.delegate = self
+            print("preparing to record....")
             audioRecorder.prepareToRecord()
-            audioRecorder.record()
+            if !audioRecorder.recording{
+                print("Recording now...")
+                audioRecorder.record()
+            }
         } catch {
             finishAudioRecording(success: false)
         }
     }
     
     func finishAudioRecording(success success: Bool) {
+        if audioRecorder.recording{
+            return
+        }
         audioRecorder.stop()
-        //audioRecorder = nil
         if success {
             print("Audio recording - Stopped")
         } else {
@@ -227,20 +244,19 @@ class ViewController: UIViewController, AVAudioRecorderDelegate {
     
     // MARK: Actions
     @IBAction func startStopButtonAction(sender: UIButton) {
-        if (isRecording){ // STOPPING COLLECTION
+        if (isRecording){   // STOPPING COLLECTION
             isRecording = false
             startButton.backgroundColor = UIColor.greenColor()
             stopCollection()
             fileHandle.closeFile()
             monitorTextView.text = ""
             //finishAudioRecording(success: true)
-        } else { // STARTING COLLECTION
+        } else {            // STARTING COLLECTION
             isRecording = true
             setOutputFileName(getExperimentDate())
             startButton.backgroundColor = UIColor.redColor()
             startCollection()
             //startAudioRecording()
-            //motionManager.startDeviceMotionUpdates()
         }
     }
 
